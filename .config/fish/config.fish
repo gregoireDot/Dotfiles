@@ -54,7 +54,7 @@ set fish_greeting ""
 #Better ls
 abbr -a ls "ls -alh --block-size=M"
 
-#Aliases for matlab
+#Matlab aliases
 abbr -a matlab "export GTK_PATH=/usr/lib/gtk-2.0; matlab -sd /home/greg/Desktop/git_projects/" 
 abbr -a matlabt "export GTK_PATH=/usr/lib/gtk-2.0; matlab -sd /home/greg/Desktop/git_projects/  -nodesktop -nosplash"
 
