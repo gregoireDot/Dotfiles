@@ -1,9 +1,12 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+# Commands to run in interactive sessions can go here
 
 
-
+###################
 ### BASH CONFIG ###
+###################
+
+
 
 #Aliases for snapper and btrfs
 alias rootsnap="sudo snapper -c root create --description "
@@ -17,13 +20,9 @@ alias lhomesnap="sudo snapper -c home list"
 alias rootsnap="sudo snapper -c root create --description "
 alias scrub="sudo btrfs scrub start -Bd /"
 alias homesnap="sudo snapper -c home create --description "
-alias snaphelp="echo -e ' \n rootsnap <Description> \t Take a snapshot of the root subvolume \n homesnap <Description> \t Take a snapshot of the home subvolume \n showasv \t \t \t Show all subvolumes \n showmsv \t \t \t Show all mounted subvolume \n drootsnap <Number(s)> \t \t Deletes the root snapshot(s) specified \n dhomesnap <Number(s)> \t \t Deletes the home snapshot(s) specified \n lrootsnap \t \t \t Lists all the root snapshots \n lhomesnap \t \t \t Lists all the home snapshots \n scrub \t \t \t \t Scrubs root'"
-
 
 #Alias for neovim
 alias vim="nvim "
-alias neo="neovide"
-
 
 #Alias for directory travel
 alias cddown="cd /home/greg/Downloads/ "
@@ -32,24 +31,37 @@ alias cdnvim="cd .config/nvim"
 alias cdfish="cd .config/fish"
 alias cdmast="cd /home/greg/Desktop/Academic/Physics/Masters/ "
 
-
 #System maintenance
 alias scheck="systemctl --failed"
 alias jcheck="journalctl -p 3 -b"
 
 
-### FISH CONFIG ###
 
-#Remove the fish greeting    
-    set fish_greeting ""
+###################
+### FISH CONFIG ###
+###################
+
+
+
+#Customize the fish greeting    
+set fish_greeting ""
+
+
+## ABBREVIATIONS ##
+#------------------
 
 
 #Better ls
-abbr -a ls "ls -alh --block-size=M "
+abbr -a ls "ls -alh --block-size=M"
 
 #Aliases for matlab
-abbr -a matlab "export GTK_PATH=/usr/lib/gtk-2.0; matlab -sd /home/greg/Desktop/Academic/Physics/Masters/Codes/" 
-abbr -a matlabt "export GTK_PATH=/usr/lib/gtk-2.0; matlab -sd /home/greg/Desktop/Academic/Physics/Masters/Codes/ -nodesktop -nosplash"
+abbr -a matlab "export GTK_PATH=/usr/lib/gtk-2.0; matlab -sd /home/greg/Desktop/git_projects/" 
+abbr -a matlabt "export GTK_PATH=/usr/lib/gtk-2.0; matlab -sd /home/greg/Desktop/git_projects/  -nodesktop -nosplash"
+
+
+
+## FUNCTIONS ##
+#--------------
 
 #Functions to bring back the use of $ and !!
     function bind_bang
@@ -76,6 +88,13 @@ abbr -a matlabt "export GTK_PATH=/usr/lib/gtk-2.0; matlab -sd /home/greg/Desktop
         bind '$' bind_dollar
     end
 end
-function fish_title
-    echo Newton 🐈
+
+# Function to allow usual clear in vterm-emac terminal
+if [ "$INSIDE_EMACS" = 'vterm' ]
+    function clear
+        vterm_printf "51;Evterm-clear-scrollback";
+        tput clear;
+    end
 end
+
+

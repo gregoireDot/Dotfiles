@@ -38,9 +38,6 @@ alias rootsnap='sudo snapper -c root create --description '
 alias scrub='sudo btrfs scrub start -Bd /'
 alias homesnap='sudo snapper -c home create --description '
 
-#Alias for matlab
-alias matlab='export GTK_PATH=/usr/lib/gtk-2.0; matlab  \-sd /home/greg/Desktop/Academic/Physics/Masters/Codes/'
-alias matlabt='export GTK_PATH=/usr/lib/gtk-2.0; matlab -nodesktop -nosplash'
 
 #Alias for neovim
 alias vim='nvim '
