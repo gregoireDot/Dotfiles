@@ -1,0 +1,58 @@
+# ACCOUNT 1 INFORMATION
+IMAPAccount 1-gmail-pers
+Host imap.gmail.com
+User kalalindon@gmail.com
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.config/mu4e/mbsyncpass-acc1.gpg"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore 1-gmail-pers-remote
+Account 1-gmail-pers
+
+MaildirStore 1-gmail-pers-local
+Path ~/Mail/1-gmail-pers/
+Inbox ~/Mail/1-gmail-pers/INBOX
+SubFolders Verbatim
+
+Channel 1-gmail-pers
+Far :1-gmail-pers-remote:
+Near :1-gmail-pers-local:
+Patterns * ![Gmail]* "[Gmail]/sent Mail" "[Gmail]/sent Starred" "[Gmail]/All Mail" "[Gmail]/sent Mail" "[Gmail]/Trash"
+Create Both
+Expunge Both
+SyncState *
+
+# ================================================================================
+
+# ACCOUNT 2 INFORMATION
+IMAPAccount 2-gmail-prof
+Host imap.gmail.com
+User gregoire.a.richard@gmail.com
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.config/mu4e/mbsyncpass-acc2.gpg"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore 2-gmail-prof-remote
+Account 2-gmail-prof
+
+MaildirStore 2-gmail-prof-local
+Path ~/Mail/2-gmail-prof/
+Inbox ~/Mail/2-gmail-prof/INBOX
+SubFolders Verbatim
+
+Channel 2-gmail-prof
+Far :2-gmail-prof-remote:
+Near :2-gmail-prof-local:
+Patterns * ![Gmail]* "[Gmail]/sent Mail" "[Gmail]/sent Starred" "[Gmail]/All Mail" "[Gmail]/sent Mail" "[Gmail]/Trash"
+Create Both
+Expunge Both
+SyncState *
+
+
+
+# ================================================================================
+
